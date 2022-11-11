@@ -1,0 +1,236 @@
+<!-- This is GUI for Breast Cancer Detection Application Using Machine Learning Classifer -->
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction of Breast Cancer</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  <!-- <style>
+    /* CSS code for button */
+    body {
+      background-image: url('static/images/world.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    /* CSS code for button */
+    .button_css {
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 20px;
+    border: 4px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    }
+    
+    .button_css:hover {
+    color: #ffffff !important;
+    background: #f6b93b;
+    border-color: #f6b93b !important;
+    transition: all 0.4s ease 0s;
+    }
+  </style> -->
+
+</head>
+
+<body>
+
+    
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark py-3" id="navbar">
+            <a class="navbar-brand" href="index" >MED-WEB</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link scrollto" href="index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto navbar-nav mr-auto" href="diagnosis">Diagnosis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto navbar-nav mr-auto" href="features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto navbar-nav mr-auto" href="predict">Predict</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto" href="team">Team</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+         
+  <!-- Show Indian AI Hospital banner-->
+  <div>
+    <img src="static/images/doctor4.jpg" class="w3-border w3-padding" alt="Indian AI Hospital" style="width:100%; margin-top: 80px;">
+  </div>
+ 
+ 
+ <div class="login">
+	
+    <!-- Get input for predict the cancer -->
+    <center>
+    <form action="submit" method="post">
+        <h1 style="margin-top: 50px; font-family: sans-serif; margin-bottom: 20px;"> Enter the Tumor Feature values: </h1>
+        
+    	<input type="text" name="mean_radius" placeholder="mean radius" required="required" />
+        <!-- <input type="text" name="mean_texture" placeholder="mean texture" required="required" /> -->
+		<input type="text" name="mean_perimeter" placeholder="mean perimeter" required="required" />
+		<input type="text" name="mean_area" placeholder="mean area" required="required" />
+        <br>
+        <!-- <input type="text" name="mean_smoothness" placeholder="mean smoothness" required="required" /> -->
+		<input type="text" name="mean_compactness" placeholder="mean compactness" required="required" />
+    	<input type="text" name="mean_concavity" placeholder="mean concavity" required="required" />
+        <input type="text" name="mean_concave_points" placeholder="mean concave points" required="required" />
+        <br>
+		<!-- <input type="text" name="mean_symmetry" placeholder="mean symmetry" required="required" />
+    	<input type="text" name="mean_fractal_dimension" placeholder="mean fractal dimension" required="required" /> -->
+        <input type="text" name="radius_error" placeholder="radius error" required="required" />
+		<!-- <input type="text" name="texture_error" placeholder="texture error" required="required" /> -->
+    	<input type="text" name="perimeter_error" placeholder="perimeter error" required="required" />
+        <input type="text" name="area_error" placeholder="area error " required="required" />
+        <br>
+		<!-- <input type="text" name="smoothness_error" placeholder="smoothness error" required="required" />
+    	<input type="text" name="compactness_error" placeholder="compactness error" required="required" />
+        <input type="text" name="concavity_error" placeholder="concavity error" required="required" />
+		<input type="text" name="concave_points_error" placeholder="concave points error" required="required" />
+    	<br>
+    	<input type="text" name="symmetry_error" placeholder="symmetry error" required="required" />
+        <input type="text" name="fractal_dimension_error" placeholder="fractal dimension error" required="required" /> -->
+		<input type="text" name="worst_radius" placeholder="worst radius" required="required" />
+    	<!-- <input type="text" name="worst_texture" placeholder="worst texture" required="required" /> -->
+        <input type="text" name="worst_perimeter" placeholder="worst perimeter" required="required" />
+		<input type="text" name="worst_area" placeholder="worst area" required="required" />
+        <br>
+    	<!-- <input type="text" name="worst_smoothness" placeholder="worst smoothness" required="required" /> -->
+        <input type="text" name="worst_compactness" placeholder="worst compactness" required="required" />
+		<input type="text" name="worst_concavity" placeholder="worst concavity" required="required" />
+    	<input type="text" name="worst_concave_points" placeholder="worst concave points" required="required" />
+        <!-- <input type="text" name="worst_symmetry" placeholder="'worst symmetry" required="required" />
+		<input type="text" name="worst_fractal_dimension" placeholder="worst fractal dimension" required="required" /> -->
+        <br>
+        
+        <!-- Show button -->
+        <div class="button_cont" align-text="center" style="margin-top: 20px; margin-bottom: 20px;">
+            <button type="submit" class="button"><strong>Predict Cancer</strong></button></a>
+        </div>
+
+
+
+        <!-- <div class="w3-center w3-padding-64" id="contact">
+            <h2 class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16" style="font-family:Verdana, Geneva, Tahoma, sans-serif">Enter the Tumor Feature values:</h2>
+        </div>
+        
+        <form class="w3-container" action="submit" method="post">
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-section">
+              <label>Mean Radius</label>
+              <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" maxlength="4" name="mean_radius" required="required">
+            </div>
+            <div class="w3-section">
+                <label>Mean Perimeter</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="mean_perimeter" required="required">
+            </div>
+            <div class="w3-section">
+                <label>Mean Area</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="mean_area" required="required">
+            </div>
+            </div>
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+              <div class="w3-section">
+                <label>Mean Compactness</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="mean_compactness" required="required">
+              </div>
+              <div class="w3-section">
+                <label>Mean Concavity</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="mean_concavity" required="required">
+              </div>
+              <div class="w3-section">
+                <label>Mean Concave Points</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="mean_concave_points" required="required">
+              </div>
+            </div>
+
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+              <div class="w3-section">
+                <label>Radius Error</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="radius_error" required="required">
+              </div>
+              <div class="w3-section">
+                <label>Perimeter Error</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="perimeter_error" required="required">
+              </div>
+              <div class="w3-section">
+                <label>Area Error</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="area_error" required="required">
+              </div>
+            </div>
+
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+              <div class="w3-section">
+                <label>Worst Radius</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="worst_radius" required="required">
+              </div>
+              <div class="w3-section">
+                <label>Worst Perimeter</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="worst_perimeter" required="required">
+              </div>
+              <div class="w3-section">
+                <label>Worst Area</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="worst_area required="required">
+              </div>
+            </div>
+
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+              <div class="w3-section">
+                <label>Worst Compactness</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="worst_compactness" required="required">
+              </div>
+              <div class="w3-section">
+                <label>Worst Concavity</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="worst_concavity" required="required">
+              </div>
+              <div class="w3-section">
+                <label>Worst Concave Points</label>
+                <input class="w3-input w3-border w3-hover-border-black" style="width:100%;" type="text" name="worst_concave_points" required="required">
+              </div>
+            </div>
+
+              <div class="button_cont" align-text="center" style="margin-top: 10px">
+                <button type="submit" class="button"><strong>Predict Cancer</strong></button></a>
+            </div>
+
+            </form>
+         -->
+
+    </center>
+   
+   <!-- Show predicted output using ML model --> 
+   <div>
+       <center>
+   <h1 style="font-family:sans-serif; font-size: 40px; padding-bottom: 10px;">{{ p }}</h1>
+       </center> 
+   </div>
+</div>
+
+ <!-- <footer>
+    <div class="fixed-footer">
+        <nav>
+            <ul>
+                <li><a href="index.html" target="_blank">Home</a></li>
+                <li><a href="predict.html" target="_blank">Predict</a></li>
+                <li><a href="about.html" target="_blank">About us</a></li>
+            </ul>
+        </nav>
+    </div>
+    </footer> -->
+
+</body>
+</html>
